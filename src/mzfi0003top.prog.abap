@@ -5,15 +5,15 @@
 TABLES: bsis.
 
 TYPES: BEGIN OF ty_bsis_divisao,
-         bukrs    TYPE bsis-bukrs, "- empresa
+         bukrs     TYPE bsis-bukrs, "- empresa
 *         HKONT    type bsis-HKONT, "- conta
-         gsber    TYPE bsis-gsber, "– Divisão ( concessão )
+         gsber     TYPE bsis-gsber, "– Divisão ( concessão )
          dmbtr(16) TYPE p DECIMALS 2, "– Moeda Interna
        END OF ty_bsis_divisao.
 
-DATA: it_bsis_divisao TYPE STANDARD TABLE OF ty_bsis_divisao,
+DATA: it_bsis_divisao    TYPE STANDARD TABLE OF ty_bsis_divisao,
       it_bsis_divisao_n2 TYPE STANDARD TABLE OF ty_bsis_divisao,
-      wa_bsis_divisao TYPE   ty_bsis_divisao.
+      wa_bsis_divisao    TYPE   ty_bsis_divisao.
 
 DATA: gv_gjahr(4)  TYPE c,
       gv_dmbtr(16) TYPE p DECIMALS 2.
@@ -37,8 +37,8 @@ DATA: tty_glt0    TYPE STANDARD TABLE OF ty_glt0,
       wa_glt0_sum TYPE ty_glt0.
 
 
-DATA:   lt_return TYPE STANDARD TABLE OF bapiret2,
-        wa_return TYPE  bapiret2.
+DATA: lt_return TYPE STANDARD TABLE OF bapiret2,
+      wa_return TYPE  bapiret2.
 
 DATA: it_ztfi0001_est TYPE STANDARD TABLE OF ztfi0001,
       wa_ztfi0001_est TYPE  ztfi0001.
@@ -107,18 +107,18 @@ TYPES: BEGIN OF ty_bsis_saida,
 
 TYPES: BEGIN OF ty_bseg,
          bukrs LIKE bseg-bukrs,
-         belnr LIKE bseg-belnr ,
+         belnr LIKE bseg-belnr,
          gjahr LIKE bseg-gjahr,
          buzei LIKE bseg-buzei,
          hkont LIKE bseg-hkont,
-         kstar LIKE bseg-kstar ,
- END OF ty_bseg.
+         kstar LIKE bseg-kstar,
+       END OF ty_bseg.
 
 TYPES: BEGIN OF ty_cskb ,
-          kokrs LIKE cskb-kokrs,
-          kstar LIKE cskb-kstar,
-          katyp LIKE cskb-katyp,
- END OF ty_cskb .
+         kokrs LIKE cskb-kokrs,
+         kstar LIKE cskb-kstar,
+         katyp LIKE cskb-katyp,
+       END OF ty_cskb .
 
 TYPES: BEGIN OF ty_bsis,
          bukrs    TYPE bsis-bukrs, "- empresa
@@ -176,7 +176,7 @@ TYPES: BEGIN OF ty_bsis_chv1,
        END OF ty_bsis_chv1.
 
 DATA: it_bsis_chv1 TYPE STANDARD TABLE OF ty_bsis_chv1, "BUKRS+HKONT+KOSTL+AUFNR
-wa_bsis_chv1 TYPE ty_bsis_chv1.
+      wa_bsis_chv1 TYPE ty_bsis_chv1.
 
 
 TYPES: BEGIN OF ty_bsis_chv2,
@@ -189,8 +189,8 @@ TYPES: BEGIN OF ty_bsis_chv2,
        END OF ty_bsis_chv2.
 
 DATA: it_bsis_chv2     TYPE STANDARD TABLE OF ty_bsis_chv2, "BUKRS+HKONT+GSBER+KOSTL+AUFNR
-wa_bsis_chv2     TYPE ty_bsis_chv2,
-it_bsis_chv2_aux TYPE STANDARD TABLE OF ty_bsis_chv2. "BUKRS+HKONT+GSBER+KOSTL+AUFNR.
+      wa_bsis_chv2     TYPE ty_bsis_chv2,
+      it_bsis_chv2_aux TYPE STANDARD TABLE OF ty_bsis_chv2. "BUKRS+HKONT+GSBER+KOSTL+AUFNR.
 
 TYPES: BEGIN OF ty_bsis_chv3,
          bukrs     TYPE bsis-bukrs, "- empresa
@@ -203,7 +203,7 @@ TYPES: BEGIN OF ty_bsis_chv3,
        END OF ty_bsis_chv3.
 
 DATA: it_bsis_chv3 TYPE STANDARD TABLE OF ty_bsis_chv3, "BUKRS+HKONT+KOSTL+AUFNR+VBUND+BEWAR
-wa_bsis_chv3 TYPE ty_bsis_chv3.
+      wa_bsis_chv3 TYPE ty_bsis_chv3.
 
 TYPES: BEGIN OF ty_bsis_chv4,
          bukrs     TYPE bsis-bukrs, "- empresa
@@ -217,7 +217,7 @@ TYPES: BEGIN OF ty_bsis_chv4,
        END OF ty_bsis_chv4.
 
 DATA: it_bsis_chv4 TYPE STANDARD TABLE OF ty_bsis_chv4, "BUKRS+HKONT+GSBER+KOSTL+AUFNR+VBUND+ BEWAR
-wa_bsis_chv4 TYPE ty_bsis_chv4.
+      wa_bsis_chv4 TYPE ty_bsis_chv4.
 
 
 DATA: it_bsis_sum TYPE STANDARD TABLE OF ty_bsis,
@@ -294,11 +294,11 @@ CONSTANTS: BEGIN OF c_folder_001,
            END OF c_folder_001.
 
 CONTROLS:  folder_001 TYPE TABSTRIP.
-DATA:      BEGIN OF g_folder_001,
-             subscreen   LIKE sy-dynnr,
-             prog        LIKE sy-repid VALUE 'SAPMZFI0003',
-             pressed_tab LIKE sy-ucomm VALUE c_folder_001-tab1,
-           END OF g_folder_001.
+DATA: BEGIN OF g_folder_001,
+        subscreen   LIKE sy-dynnr,
+        prog        LIKE sy-repid VALUE 'SAPMZFI0003',
+        pressed_tab LIKE sy-ucomm VALUE c_folder_001-tab1,
+      END OF g_folder_001.
 
 
 SELECTION-SCREEN BEGIN OF SCREEN 0100 AS SUBSCREEN.
@@ -310,5 +310,6 @@ SELECT-OPTIONS: contas FOR bsis-hkont.
 SELECTION-SCREEN END OF SCREEN 0200.
 
 SELECTION-SCREEN BEGIN OF SCREEN 0300 AS SUBSCREEN.
-SELECT-OPTIONS: divisao FOR bsis-gsber.
+SELECT-OPTIONS: divisao FOR  bsis-gsber.
+PARAMETERS:     pprinc  TYPE tacc_principle-acc_principle.
 SELECTION-SCREEN END OF SCREEN 0300.

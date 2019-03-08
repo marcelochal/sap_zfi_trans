@@ -163,6 +163,9 @@ ENDMODULE.
 *----------------------------------------------------------------------*
 MODULE status_0110 OUTPUT.
   SET PF-STATUS '0001'.
+  IF pprinc IS INITIAL.
+    pprinc = 'BRGA'.
+  ENDIF.
 *  SET TITLEBAR 'xxx'.
 ENDMODULE.
 *&---------------------------------------------------------------------*

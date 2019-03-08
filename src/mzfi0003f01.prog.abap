@@ -2194,12 +2194,12 @@ FORM preencher_header  USING   p_record TYPE ty_bsis_saida
 
   CLEAR: l_data.
 
-  p_header-pstng_date = wa_lancamento-dt_lan.
+  p_header-pstng_date    = wa_lancamento-dt_lan.
 
-  p_header-doc_type   = p_record-blart.
-  p_header-ref_doc_no = 'ENCERRAMENTO'.
-  p_header-bus_act    = 'RFBU'.
-  p_header-acc_principle = 'L1'." p_record-acc_principle.
+  p_header-doc_type      = p_record-blart.
+  p_header-ref_doc_no    = 'ENCERRAMENTO'.
+  p_header-bus_act       = 'RFBU'.
+  p_header-acc_principle = pprinc." p_record-acc_principle.
 
 ENDFORM.
 *&---------------------------------------------------------------------*

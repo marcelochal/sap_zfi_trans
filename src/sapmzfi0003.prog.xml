@@ -1503,6 +1503,13 @@
      <ENTRY>Período</ENTRY>
      <LENGTH>15</LENGTH>
     </item>
+    <item>
+     <ID>S</ID>
+     <KEY>PPRINC</KEY>
+     <ENTRY>.</ENTRY>
+     <LENGTH>9</LENGTH>
+     <SPLIT>D</SPLIT>
+    </item>
    </TPOOL>
   </asx:values>
  </asx:abap>
